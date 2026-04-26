@@ -1,0 +1,16 @@
+# Grafana compose file
+
+services:
+  grafana:
+    image: grafana/grafana:13.0.1
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - /opt/appdata/grafana/data:/var/lib/grafana
+      - /opt/appdata/grafana/plugins:/var/lib/grafana/plugins
+    environment:
+      - TZ=America/New_York
+      - GF_USERS_ALLOW_SIGN_UP=false
+    user: "1000"
