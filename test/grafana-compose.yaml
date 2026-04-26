@@ -3,7 +3,7 @@
 services:
   grafana:
     image: grafana/grafana:13.0.1
-    user: "1001"
+    user: "472"
     container_name: grafana
     restart: unless-stopped
     ports:
