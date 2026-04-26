@@ -3,6 +3,7 @@
 services:
   grafana:
     image: grafana/grafana:13.0.1
+    user: "1001"
     container_name: grafana
     restart: unless-stopped
     ports:
@@ -13,4 +14,4 @@ services:
     environment:
       - TZ=America/New_York
       - GF_USERS_ALLOW_SIGN_UP=false
-    user: "1001"
+    
