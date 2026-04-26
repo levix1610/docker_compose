@@ -3,15 +3,22 @@
 services:
   grafana:
     image: grafana/grafana:13.0.1
-    user: "472"
     container_name: grafana
-    restart: unless-stopped
+    # We remove the 'user: 1001' line to let the image handle its internal startup
+    depends_on:
+      init-permissions:
+        condition: service_completed_successfully
+    volumes:
+      - /opt/appdata/grafana:/var/lib/grafana
     ports:
       - "3000:3000"
+    restart: unless-stopped
+
+  # This tiny container runs once, fixes the folder, and then exits
+  init-permissions:
+    image: busybox
+    user: root
     volumes:
-      - /opt/appdata/grafana/data:/var/lib/grafana
-      - /opt/appdata/grafana/plugins:/var/lib/grafana/plugins
-    environment:
-      - TZ=America/New_York
-      - GF_USERS_ALLOW_SIGN_UP=false
+      - /opt/appdata/grafana:/var/lib/grafana
+    command: ["sh", "-c", "chown -R 472:472 /var/lib/grafana && chmod -R 775 /var/lib/grafana"]
     
