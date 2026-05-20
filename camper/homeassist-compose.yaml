@@ -1,0 +1,12 @@
+# Home assistant Docker Deploy
+
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /opt/appdata/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true # Often needed for Bluetooth or USB zigbee sticks
+    network_mode: host # REQUIRED for device discovery (MDNS/UPnP)

@@ -1,0 +1,14 @@
+# Uptime Kuma docker compose for server monitoring
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:2.3.2
+    container_name: uptime-kuma
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - /opt/appdata/uptime-kuma/data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock # Optional: Allows monitoring local Docker containers
+    environment:
+      - TZ=America/New_York

@@ -1,0 +1,12 @@
+# InflxuDB for data collection from proxmox host
+
+services:
+  influxdb:
+    image: influxdb:2.9.1
+    container_name: influxdb
+    restart: unless-stopped
+    ports:
+      - "8086:8086"
+    volumes:
+      - /opt/appdata/influxdb/data:/var/lib/influxdb2
+      - /opt/appdata/influxdb/config:/etc/influxdb2
