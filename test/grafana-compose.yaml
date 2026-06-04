@@ -2,7 +2,7 @@
 
 services:
   grafana:
-    image: grafana/grafana:13.0.1
+    image: grafana/grafana:13.0.2
     container_name: grafana
     # We remove the 'user: 1001' line to let the image handle its internal startup
     depends_on:
