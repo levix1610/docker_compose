@@ -8,8 +8,12 @@ services:
     environment:
       - USER_UID=1000
       - USER_GID=1000
+      - GITEA__server__HTTP_PORT=3000
+      - GITEA__server__ROOT_URL=http://10.100.100.10:3001/
+      - GITEA__server__SSH_PORT=2222
+      - GITEA__server__SSH_LISTEN_PORT=22
     ports:
-      - "3000:3000" # Web UI
+      - "3001:3000" # Web UI
       - "2222:22"   # SSH port for Git operations
     volumes:
       - /opt/appdata/gitea/data:/data

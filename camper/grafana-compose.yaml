@@ -11,7 +11,7 @@ services:
     volumes:
       - /opt/appdata/grafana:/var/lib/grafana
     ports:
-      - "3001:3000"  # Need to modify since grafana is already running on 3000 for gitea
+      - "3000:3000"  # Need to modify since grafana is already running on 3000 for gitea
     restart: unless-stopped
 
   # This tiny container runs once, fixes the folder, and then exits
