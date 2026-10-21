@@ -3,7 +3,7 @@
 services:
   homarr:
     container_name: homarr
-    image: ghcr.io/homarr-labs/homarr:v2.6.0 # Updated 10/15/26
+    image: ghcr.io/homarr-labs/homarr:v2.7.0 # Updated 10/20/26
     restart: unless-stopped
     ports:
       - "7575:7575"

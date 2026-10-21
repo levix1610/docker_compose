@@ -2,7 +2,7 @@
 
 services:
   vikunja:
-    image: vikunja/vikunja:2.7.0
+    image: vikunja/vikunja:2.7.1 #(Updated 10/20/26)
     container_name: vikunja
     restart: unless-stopped
     ports:
