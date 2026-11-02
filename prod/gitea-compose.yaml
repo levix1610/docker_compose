@@ -2,7 +2,7 @@
 
 services:
   gitea:
-    image: gitea/gitea:28.2.0
+    image: gitea/gitea:28.3.0  # updated (11/1/26)
     container_name: gitea
     restart: unless-stopped
     environment:
